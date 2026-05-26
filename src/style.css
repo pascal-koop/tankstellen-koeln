@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/*
+ * Fix für Tailwind v4 + Leaflet:
+ * Tailwinds Preflight setzt `img { max-width: 100%; height: auto; }`,
+ * was die exakte Größe der Karten-Tiles zerstört.
+ * Wir stellen das Standardverhalten innerhalb des Karten-Containers wieder her.
+ */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+.leaflet-container img {
+  max-width: none !important;
+  height: auto;
+}
+
+.leaflet-tile {
+  max-width: none !important;
+  width: 256px !important;
+  height: 256px !important;
+}
