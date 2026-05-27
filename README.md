@@ -160,9 +160,9 @@ Die bestehende ArcGIS REST API ist eine reine Lese-Schnittstelle (Read-Only). Um
 ### API-Endpunkte
 
 ```
+POST   /api/tankstellen           # Neue Tankstelle anlegen
 GET    /api/tankstellen           # Alle Tankstellen (mit Filter & Pagination)
 GET    /api/tankstellen/:id       # Einzelne Tankstelle
-POST   /api/tankstellen           # Neue Tankstelle anlegen
 PUT    /api/tankstellen/:id       # Tankstelle aktualisieren
 DELETE /api/tankstellen/:id       # Tankstelle löschen
 ```
