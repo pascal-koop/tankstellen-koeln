@@ -62,22 +62,36 @@ npm run build
 ```
 src/
 ├── api/
-│   └── tankstellen.ts        # API-Service + TypeScript-Typen
+│   └── tankstellen/
+│       ├── tankstellen.api.ts        # API-Service (fetchTankstellen)
+│       ├── tankstellen.api.test.ts   # Unit-Tests API-Service
+│       └── tankstellen.types.ts      # TypeScript-Typen (Tankstelle, ArcGIS-Response)
 ├── components/
-│   ├── SearchBar.vue          # Suchfeld mit v-model
-│   ├── SortControls.vue       # Sortier-Button (asc/desc/none)
-│   ├── TankstellenTable.vue   # Tabelle mit geparsten Adressdaten
-│   └── TankstellenMap.vue     # Leaflet-Kartenansicht
-├── composables/
-│   └── useTankstellen.ts      # Zentrale Logik: Laden, Filtern, Sortieren
-├── __tests__/
-│   ├── test-utils.ts          # Helper für Composable-Tests
-│   ├── useTankstellen.test.ts # Unit-Tests Composable
-│   ├── TankstellenTable.test.ts
-│   └── SearchBar.test.ts
-├── App.vue                    # Hauptlayout
-├── main.ts                    # Entry Point
-└── style.css                  # Tailwind-Imports + Basis-Styles
+│   ├── SearchBar/
+│   │   ├── SearchBar.vue             # Suchfeld mit v-model
+│   │   └── SearchBar.test.ts
+│   ├── SortControls/
+│   │   ├── SortControls.vue          # Sortier-Button (asc/desc/none)
+│   │   └── SortControls.test.ts
+│   ├── TankstellenTable/
+│   │   ├── TankstellenTable.vue      # Tabelle mit geparsten Adressdaten
+│   │   └── TankstellenTable.test.ts
+│   └── TankstellenMap/
+│       ├── TankstellenMap.vue        # Leaflet-Kartenansicht
+│       └── TankstellenMap.test.ts
+├── stores/
+│   └── tankstellen/
+│       ├── tankstellen.store.ts      # Pinia-Store: Laden, Filtern, Sortieren
+│       └── tankstellen.store.test.ts
+├── utils/
+│   └── address/
+│       ├── address.ts                # Adress-Parsing (Straße, PLZ, Stadtteil)
+│       └── address.test.ts
+├── assets/                            # Statische Assets
+├── App.vue                            # Hauptlayout
+├── main.ts                            # Entry Point (Vue + Pinia Setup)
+├── env.d.ts                           # Vite/Vue Type-Definitionen
+└── style.css                          # Tailwind-Imports + Basis-Styles
 ```
 
 ## Kollaboratives Entwickeln & Code-Qualität
